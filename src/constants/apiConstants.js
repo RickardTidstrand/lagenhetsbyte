@@ -1,4 +1,4 @@
 export default {
-  NORRIS_URL:"http://www.icndb.com/api/",
+  NORRIS_URL:"https://api.icndb.com/jokes/random",
   CANDIDATES_URL: "http://idoweb.se/candidates/candidates.json"
 }

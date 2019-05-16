@@ -1,6 +1,8 @@
+import apiConstants from '../constants/apiConstants'
+
 async function getNorrisJokes(){
-  let res = await fetch("http://www.icndb.com/api/");
-  console.log(res);
-  return res;
+  let res = await fetch(apiConstants.NORRIS_URL);
+  let data = await res.json();
+  return data;
 }
 export default getNorrisJokes;

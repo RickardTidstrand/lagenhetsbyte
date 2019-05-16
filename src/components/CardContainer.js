@@ -2,10 +2,15 @@ import React from 'react'
 
 import CandidateCard from './CandidateCard'
 
-const CardContainer =()=>{
+import getNorrisJokes from '../api/norrisApi'
+import getCandidatesData from '../api/candidatesApi'
+import '../css/cardContainer.css'
 
+const CardContainer =()=>{
+  getNorrisJokes();
+  getCandidatesData();
   return(
-    <div>
+    <div className="card-container">
       <CandidateCard/>
     </div>
   )

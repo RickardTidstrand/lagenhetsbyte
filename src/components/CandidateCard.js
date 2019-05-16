@@ -1,12 +1,12 @@
 import React from 'react'
 import Card from '@material-ui/core/Card'
 
-const CandidateCard = ({CandidateImg, CandidateName})=>{
+import '../css/candidateCard.css'
 
-  return(
-    <Card>
-      TEST
-    </Card>
-  )
-}
+const CandidateCard = ({CandidateImg, CandidateName})=>(
+  <Card className="candidate-card">
+    TEST
+  </Card>
+);
+
 export default CandidateCard
