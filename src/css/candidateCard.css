@@ -2,6 +2,13 @@
   height: 300px;
   width: 200px;
   margin: 10px;
+  z-index: 5;
+  text-align: center;
+  background-color: white;
+  transition: all 0.4s;
+}
+.candidate-card:hover{
+  background-color: rgba(238, 71, 141, 0.2);
 }
 .candidate-card img{
   max-height: 50%;

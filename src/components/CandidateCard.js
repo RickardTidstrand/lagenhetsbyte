@@ -1,11 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Card from '@material-ui/core/Card'
 import Checkbox from '@material-ui/core/Checkbox'
 import Grow from '@material-ui/core/Grow';
 
 import '../css/candidateCard.css'
 
-const CandidateCard = ({candidateImg, candidateName, handleCandidate, id})=>{
+function CandidateCard ({candidateImg, candidateName, handleCandidate, id, disableCheckbox}){
+  const [state, setState] = useState(false);
+
+  function handleChange(event){
+    console.log(event.target.checked);
+    let value = true//!event.target.checked
+    setState(value);
+    handleCandidate({candidateName, id, value, candidateImg});
+  }
 
   return(
     <Grow
@@ -16,11 +24,14 @@ const CandidateCard = ({candidateImg, candidateName, handleCandidate, id})=>{
       <Card className="candidate-card" >
         <img src={candidateImg} alt="Candidate"/>
         <p>{candidateName}</p>
-        <Checkbox onChange={(e)=>{handleCandidate({candidateName, id, e})}}
-          value={"false"}
-        />
+        {!disableCheckbox&&
+          <Checkbox
+            onChange={(e)=>{handleChange(e)}}
+            checked={state}
+          />
+        }
       </Card>
-</Grow>)
+    </Grow>)
 }
 
 export default CandidateCard

@@ -5,4 +5,11 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  position: relative;
+}
+.submit-button{
+  position: fixed !important;
+  bottom: 40px;
+  right: 40px;
+  z-index: 10;
 }
