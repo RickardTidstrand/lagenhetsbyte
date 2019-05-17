@@ -8,15 +8,37 @@ import '../css/cardContainer.css'
 
 class CardContainer extends React.Component{
 
-  componentDidMount(){
-    getNorrisJokes();
-    getCandidatesData();
+  state = {
+    candidates: [],
+    chosenCandidates: []
   }
 
+  handleCandidate(candidate){
+    console.log(candidate.e.target.value);
+  }
+
+  componentDidMount(){
+    let cardHolder;
+    getCandidatesData().then((candidates)=>{
+      cardHolder = candidates.map((candidate, i)=>(
+        <CandidateCard
+          key={i}
+          id={i}
+          candidateImg={candidate.imageUrl}
+          candidateName={candidate.name}
+          handleCandidate={(id)=>{this.handleCandidate(id)}}
+        />
+      ));
+      this.setState({
+        candidates: cardHolder
+      });
+    })
+  }
   render(){
+    const { candidates } = this.state
     return(
       <div className="card-container">
-        <CandidateCard/>
+        {candidates}
       </div>
     )
   }

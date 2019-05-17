@@ -3,3 +3,6 @@
   width: 200px;
   margin: 10px;
 }
+.candidate-card img{
+  max-height: 50%;
+}
