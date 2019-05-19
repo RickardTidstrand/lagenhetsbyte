@@ -1,10 +1,14 @@
 import React, {useState, useEffect} from 'react';
-import AddIcon from '@material-ui/icons/Add';
+import DoneIcon from '@material-ui/icons/Done';
 import Fab from '@material-ui/core/Fab';
 import CandidateCard from './CandidateCard';
 import SummationCard from './SummationCard';
 import getCandidatesData from '../api/candidatesApi';
-import {removeFromListByName, containsTrumpOrObama} from '../util/functions';
+import {removeFromListByName,
+        containsTrumpOrObama,
+        containsTrumpAndObama,
+        shuffleArray,
+        placeTrumpAfterObama} from '../util/functions';
 import '../css/cardContainer.css';
 
 /*CardContainer()
@@ -17,11 +21,17 @@ function CardContainer(){
   const [summationVisible, setSummationVisible] = useState(false);
   const [onlyTrumpOrObama, setOnlyTrumpOrObama] = useState(false)
 
+  //This funktion reaganges the chosen candidates to be sorted correctly before renderd in summation
   function handleSummationOpen(){
-    
+    let obamaAndTrump = containsTrumpAndObama(chosenCandidates);
+    let holder;
     //If only Obama or Trump is chosen, display none in summation
     if (chosenCandidates.length === 1 && containsTrumpOrObama(chosenCandidates)) {
-      setOnlyTrumpOrObama(true)
+      setOnlyTrumpOrObama(true);
+    }else if (obamaAndTrump) {
+      holder = placeTrumpAfterObama(obamaAndTrump.obamaIndex, obamaAndTrump.trumpIndex, chosenCandidates);
+      setChosenCandidates(holder);
+      setOnlyTrumpOrObama(false);
     }
     else {
       setOnlyTrumpOrObama(false)
@@ -37,17 +47,19 @@ function CardContainer(){
 
     //Add candidate to list or remove from list
     if (candidate.value) {
-      holder.push(candidate)
-      setChosenCandidates(holder)
+      holder.push(candidate);
+      setChosenCandidates(holder);
     }else{
       holder = removeFromListByName(candidate, holder);
-      setChosenCandidates(holder)
+      setChosenCandidates(holder);
     }
   }
 
   useEffect(()=>{
     let cardHolder;
     getCandidatesData().then((candidates)=>{
+      //Shuffle the array
+      shuffleArray(candidates)
       cardHolder = candidates.map((candidate, i)=>(
         <CandidateCard
           key={i}
@@ -70,7 +82,7 @@ function CardContainer(){
         size="large"
         onClick={()=>{handleSummationOpen()}}
       >
-        <AddIcon/>
+        <DoneIcon/>
       </Fab>
       <SummationCard
         visible={summationVisible}

@@ -28,10 +28,16 @@ const SummationCard = ({visible, candidates, handleClose, onlyTrumpOrObama})=>{
     >
       <DialogTitle id="alert-dialog-title">{"Summation"}</DialogTitle>
       <DialogContent>
-        {candidatesList}
+        {
+          candidatesList.length?
+            candidatesList
+          :onlyTrumpOrObama?
+            "Obama and trump cant not be selected by them selves!"
+          :"No candidates selected!"
+        }
       </DialogContent>
       <DialogActions>
-        <Button onClick={handleClose} color="primary" autoFocus>
+        <Button onClick={handleClose} color="secondary" autoFocus>
           Close
         </Button>
       </DialogActions>

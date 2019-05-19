@@ -34,7 +34,8 @@ function CandidateCard ({candidateImg, candidateName, handleCandidate, id, disab
           />
         }
       </Card>
-    </Grow>)
+    </Grow>
+  )
 }
 
 export default CandidateCard

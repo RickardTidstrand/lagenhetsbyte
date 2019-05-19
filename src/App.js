@@ -4,7 +4,6 @@ import './App.css';
 
 import CardContainer from './components/CardContainer'
 
-
 class App extends React.Component{
 
   render(){
