@@ -9,3 +9,8 @@ header{
 header img{
   max-height: 100%;
 }
+.snackbar{
+  width: 400px;
+  position: absolute;
+  left: calc(50% - 200px);
+}
