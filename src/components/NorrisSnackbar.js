@@ -1,8 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import Button from '@material-ui/core/Button';
-import SnackbarContent from '@material-ui/core/SnackbarContent';
 import Snackbar from '@material-ui/core/Snackbar';
-
 import norrisApi from '../api/norrisApi'
 
 function NorrisSnackbar(){
@@ -35,7 +33,6 @@ function NorrisSnackbar(){
           vertical: 'top',
           horizontal: 'center',
         }}
-
         open={snack}
         message={<span>{joke}</span>}
         action={action} >
