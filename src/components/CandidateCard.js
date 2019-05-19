@@ -5,12 +5,15 @@ import Grow from '@material-ui/core/Grow';
 
 import '../css/candidateCard.css'
 
+/*CandidateCard()
+* Displays the candidate card. Each card has its own state for when it's checked
+* or not
+*/
 function CandidateCard ({candidateImg, candidateName, handleCandidate, id, disableCheckbox}){
   const [state, setState] = useState(false);
 
   function handleChange(event){
-    console.log(event.target.checked);
-    let value = true//!event.target.checked
+    let value = event.target.checked
     setState(value);
     handleCandidate({candidateName, id, value, candidateImg});
   }
@@ -22,7 +25,7 @@ function CandidateCard ({candidateImg, candidateName, handleCandidate, id, disab
       {... { timeout: id*500 }}
     >
       <Card className="candidate-card" >
-        <img src={candidateImg} alt="Candidate"/>
+        <div style={{backgroundImage: `url("${candidateImg}")`}} src={candidateImg} className="candidate-image"/>
         <p>{candidateName}</p>
         {!disableCheckbox&&
           <Checkbox

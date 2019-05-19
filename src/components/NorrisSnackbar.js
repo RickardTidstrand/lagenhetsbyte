@@ -15,6 +15,11 @@ function NorrisSnackbar(){
       Close
     </Button>
   );
+  const message = (
+    <span>
+      {joke}
+    </span>
+  )
 
   useEffect(()=>{
     norrisApi().then((response)=>{
@@ -34,7 +39,7 @@ function NorrisSnackbar(){
           horizontal: 'center',
         }}
         open={snack}
-        message={<span>{joke}</span>}
+        message={message}
         action={action} >
       </Snackbar>
   )

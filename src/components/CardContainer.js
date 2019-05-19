@@ -1,36 +1,46 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect} from 'react';
 import AddIcon from '@material-ui/icons/Add';
 import Fab from '@material-ui/core/Fab';
-import CandidateCard from './CandidateCard'
-import SummationCard from './SummationCard'
+import CandidateCard from './CandidateCard';
+import SummationCard from './SummationCard';
+import getCandidatesData from '../api/candidatesApi';
+import {removeFromListByName, containsTrumpOrObama} from '../util/functions';
+import '../css/cardContainer.css';
 
-import getCandidatesData from '../api/candidatesApi'
-import '../css/cardContainer.css'
-
+/*CardContainer()
+* Contains all the candidates cards and acts as a controller for handeling the summation
+* of the candidates cards
+*/
 function CardContainer(){
-const [candidates, setCandidates] = useState([])
-const [chosenCandidates, setChosenCandidates] = useState([])
-const [summationVisible, setSummationVisible] = useState(false)
+  const [candidates, setCandidates] = useState([]);
+  const [chosenCandidates, setChosenCandidates] = useState([]);
+  const [summationVisible, setSummationVisible] = useState(false);
+  const [onlyTrumpOrObama, setOnlyTrumpOrObama] = useState(false)
 
   function handleSummationOpen(){
-    setSummationVisible(true)
+    
+    //If only Obama or Trump is chosen, display none in summation
+    if (chosenCandidates.length === 1 && containsTrumpOrObama(chosenCandidates)) {
+      setOnlyTrumpOrObama(true)
+    }
+    else {
+      setOnlyTrumpOrObama(false)
+    }
+    setSummationVisible(true);
   }
   function handleSummationClose(){
-    setSummationVisible(false)
+    setSummationVisible(false);
   }
 
   function handleCandidate(candidate){
     let holder = chosenCandidates
-    holder.push(candidate)
 
     //Add candidate to list or remove from list
     if (candidate.value) {
+      holder.push(candidate)
       setChosenCandidates(holder)
     }else{
-      let index = holder.indexOf(5);
-      if (index > -1) {
-        holder.splice(index, 1);
-      }
+      holder = removeFromListByName(candidate, holder);
       setChosenCandidates(holder)
     }
   }
@@ -66,6 +76,7 @@ const [summationVisible, setSummationVisible] = useState(false)
         visible={summationVisible}
         handleClose={()=>{handleSummationClose()}}
         candidates={chosenCandidates}
+        onlyTrumpOrObama={onlyTrumpOrObama}
       />
     </div>
   )

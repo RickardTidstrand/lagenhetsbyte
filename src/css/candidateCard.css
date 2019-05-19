@@ -6,10 +6,19 @@
   text-align: center;
   background-color: white;
   transition: all 0.4s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .candidate-card:hover{
   background-color: rgba(238, 71, 141, 0.2);
 }
-.candidate-card img{
-  max-height: 50%;
+.candidate-image{
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  background-position: center;
+  background-size: auto 130%;
+  background-repeat: no-repeat;
+
 }

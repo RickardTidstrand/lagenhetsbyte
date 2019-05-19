@@ -6,18 +6,21 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import Button from '@material-ui/core/Button';
 import CandidateCard from './CandidateCard'
 
+//Displays all the selected candidates
+const SummationCard = ({visible, candidates, handleClose, onlyTrumpOrObama})=>{
+  let candidatesList = []
+  if (!onlyTrumpOrObama) {
+    candidatesList = candidates.map((candidate, i)=>(
+      <CandidateCard
+        key={i}
+        id={i}
+        candidateImg={candidate.candidateImg}
+        candidateName={candidate.candidateName}
+        disableCheckbox
+      />
+    ))
+  }
 
-const SummationCard = ({visible, candidates, handleClose})=>{
-  console.log(candidates);
-  let candidatesList = candidates.map((candidate, i)=>(
-    <CandidateCard
-      key={i}
-      id={i}
-      candidateImg={candidate.candidateImg}
-      candidateName={candidate.candidateName}
-      disableCheckbox
-    />
-  ))
   return(
     <Dialog
       open={visible}
