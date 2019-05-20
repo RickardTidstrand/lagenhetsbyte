@@ -24,3 +24,5 @@ You will also see any lint errors in the console.
 Sometimes the material ui cards will overlap the header, even though they have different z-indexes.
 
 The app is not optimized for IE 11 or below.
+
+Scroll bar disappears when clicking the "done" button.
