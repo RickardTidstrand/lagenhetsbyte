@@ -1,8 +1,8 @@
-import React from 'react'
-import NorrisSnackbar from './NorrisSnackbar'
+import React from 'react';
+import NorrisSnackbar from './NorrisSnackbar';
 
-import '../css/header.css'
-import HeaderImg from '../resources/img/axakon.png'
+import '../css/header.css';
+import HeaderImg from '../resources/img/axakon.png';
 
 const Header = ()=>(
   <header>

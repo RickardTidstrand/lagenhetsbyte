@@ -1,12 +1,12 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect} from 'react';
 import Button from '@material-ui/core/Button';
 import Snackbar from '@material-ui/core/Snackbar';
-import norrisApi from '../api/norrisApi'
+import norrisApi from '../api/norrisApi';
 
 function NorrisSnackbar(){
-  const [joke, setJoke] = useState("")
-  const [snack, setSnack] = useState(false)
-  const action = (
+  const [joke, setJoke] = useState("");
+  const [snack, setSnack] = useState(false);
+  const closeAction = (
     <Button
       color="secondary"
       size="small"
@@ -19,17 +19,17 @@ function NorrisSnackbar(){
     <span>
       {joke}
     </span>
-  )
+  );
 
   useEffect(()=>{
     norrisApi().then((response)=>{
       setJoke(response.value.joke);
       setSnack(true);
     })
-  }, [])
+  }, []);
 
   function closeSnack(){
-    setSnack(false)
+    setSnack(false);
   }
 
   return(
@@ -40,7 +40,8 @@ function NorrisSnackbar(){
         }}
         open={snack}
         message={message}
-        action={action} >
+        action={closeAction}
+      >
       </Snackbar>
   )
 }
