@@ -1,0 +1,15 @@
+.card-container{
+  max-width: 900px;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.submit-button{
+  position: fixed !important;
+  bottom: 40px;
+  right: 40px;
+  z-index: 10;
+}
