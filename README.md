@@ -4,7 +4,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 Clone the directory from release tag 1.0.0 using
 
-git clone https://github.com/RickardTidstrand/lagenhetsbyte1.0.0.git
+git clone --branch 1.0.0 https://github.com/RickardTidstrand/lagenhetsbyte.git
 
 
 ### `npm install`
