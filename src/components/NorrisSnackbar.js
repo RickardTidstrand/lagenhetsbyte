@@ -6,7 +6,7 @@ import norrisApi from '../api/norrisApi'
 function NorrisSnackbar(){
   const [joke, setJoke] = useState("")
   const [snack, setSnack] = useState(false)
-  const action = (
+  const closeAction = (
     <Button
       color="secondary"
       size="small"
@@ -40,7 +40,7 @@ function NorrisSnackbar(){
         }}
         open={snack}
         message={message}
-        action={action} >
+        action={closeAction} >
       </Snackbar>
   )
 }
