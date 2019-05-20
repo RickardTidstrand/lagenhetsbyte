@@ -35,7 +35,7 @@ function CardContainer(){
       setOnlyTrumpOrObama(false);
     }
     else{
-      setOnlyTrumpOrObama(false)
+      setOnlyTrumpOrObama(false);
     }
     setSummationVisible(true);
   }
@@ -46,7 +46,7 @@ function CardContainer(){
   useEffect(()=>{
     let cardHolder;
     function setCandidateStatus(candidate){
-      let holder = chosenCandidates
+      let holder = chosenCandidates;
 
       //Add candidate to list or remove from list
       if (candidate.value) {
@@ -71,7 +71,7 @@ function CardContainer(){
       ));
       setCandidates(cardHolder);
     })
-  }, [chosenCandidates])
+  }, [chosenCandidates]);
 
   return(
     <div className="card-container">

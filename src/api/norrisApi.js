@@ -1,4 +1,4 @@
-import apiConstants from '../constants/apiConstants'
+import apiConstants from '../constants/apiConstants';
 
 async function getNorrisJokes(){
   let res = await fetch(apiConstants.NORRIS_URL);

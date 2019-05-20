@@ -1,4 +1,4 @@
-import apiConstants from '../constants/apiConstants'
+import apiConstants from '../constants/apiConstants';
 
 async function candidatesApi(){
   let res = await fetch(apiConstants.CANDIDATES_URL);

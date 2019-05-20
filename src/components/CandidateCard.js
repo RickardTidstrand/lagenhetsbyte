@@ -12,7 +12,7 @@ function CandidateCard ({candidateImg, candidateName, setCandidateStatus, id, di
   const [isChecked, setChecked] = useState(false);
 
   function handleChange(event){
-    let value = event.target.checked
+    let value = event.target.checked;
     setChecked(value);
     setCandidateStatus({candidateName, id, value, candidateImg});
   }
