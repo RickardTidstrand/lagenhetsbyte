@@ -1,6 +1,18 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Intro
+
+This project is built using React and uses React Hooks, material ui is used for designing elements.
+
+## Problems encountered
+
+The URL for the Chuck Norris jokes was incorrect, I found the right one at https://api.icndb.com/jokes/random
+
+The URL http://idoweb.se/candidates/candidates.json did not have any access contoll headers, so I mocked the api call by making my own candidates.json file.
+
 ## Installing
+
+Requires Node v8.10 or higher for install.
 
 Clone the directory from release tag 1.0.0 using
 
